@@ -45,7 +45,6 @@
             min-height: 100vh;
         }
 
-        /* Container simulando papel elegante de alta gramatura do convite */
         .card-container {
             background-color: var(--bg-cream);
             width: 100%;
@@ -195,7 +194,6 @@
             margin-top: 5px;
         }
 
-        /* Banner de Cores "Tudo na Cor Cinza" */
         .banner-cinza {
             background-color: var(--grey-light);
             border: 1px solid #D1D5DB;
@@ -298,7 +296,6 @@
             gap: 10px 25px;
         }
 
-        /* Item Individual da Lista */
         .gift-item {
             display: flex;
             align-items: center;
@@ -315,25 +312,6 @@
         .gift-item:hover {
             background-color: rgba(197, 168, 128, 0.1);
             transform: translateX(2px);
-        }
-
-        /* Item Reservado (Indisponível) */
-        .gift-item.reserved {
-            background-color: rgba(0, 0, 0, 0.03);
-            border-bottom-color: transparent;
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .gift-item.reserved:hover {
-            transform: none;
-            background-color: rgba(0, 0, 0, 0.03);
-        }
-
-        .gift-item.reserved .gift-name {
-            text-decoration: line-through;
-            color: #777777;
-            font-weight: 400;
         }
 
         /* Marcador de Coração */
@@ -381,7 +359,6 @@
             color: var(--gold-dark);
         }
 
-        /* Bloco de "Eu Escolhi Presentear Com:" (Igual ao Rodapé do Convite) */
         .selection-summary {
             border: 2px solid var(--gold);
             border-radius: 16px;
@@ -464,7 +441,7 @@
             box-shadow: 0 0 10px rgba(197, 168, 128, 0.4);
         }
 
-        /* Botão do WhatsApp do Convite */
+        /* Botão de confirmação do WhatsApp */
         .btn-confirm {
             background-color: var(--gold-dark);
             color: var(--white);
@@ -494,7 +471,7 @@
             box-shadow: 0 6px 18px rgba(158, 129, 89, 0.45);
         }
 
-        /* Agradecimentos Finais do Convite */
+        /* Agradecimentos Finais */
         .footer-thanks {
             text-align: center;
             font-family: 'Great Vibes', cursive;
@@ -546,7 +523,7 @@
             cursor: help;
         }
 
-        /* Tooltip de erro para ajudar o usuário */
+        /* Tooltip explicativo de sincronização */
         .sync-badge::after {
             content: "Para corrigir o erro de sincronização: 1. Vá ao Google Apps Script. 2. Clique em 'Implantar' > 'Gerenciar implantações'. 3. Crie uma versão nova mudando o acesso de 'Apenas eu' para 'Qualquer pessoa'.";
             position: absolute;
@@ -575,7 +552,6 @@
             animation: spin 1s linear infinite;
         }
 
-        /* Modal Customizado Premium */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -649,7 +625,7 @@
             background-color: #856B48;
         }
 
-        /* Painel Admin */
+        /* Painel Administrativo */
         .admin-panel {
             background-color: rgba(255,255,255,0.95);
             border: 2px solid var(--gold);
@@ -695,14 +671,13 @@
             transition: background 0.2s;
         }
 
-        /* RESPONSIVIDADE PROFISSIONAL (MOBILE-FIRST) */
         @media (max-width: 500px) {
             body {
-                padding: 10px 4px; /* Mais área útil */
+                padding: 10px 4px;
             }
 
             .card-container {
-                padding: 30px 14px; /* Padding interno perfeito */
+                padding: 30px 14px;
                 border-radius: 18px;
             }
 
@@ -720,7 +695,6 @@
                 bottom: 12px;
             }
 
-            /* Ocultar elementos decorativos de cozinha para maximizar legibilidade e espaço do celular */
             .kitchen-decor-top,
             .kitchen-decor-bottom {
                 display: none !important;
@@ -742,7 +716,7 @@
             }
 
             .header h1 {
-                font-size: 40px; /* Redução para evitar overflow lateral */
+                font-size: 40px;
             }
 
             .header p.presence-note {
@@ -764,7 +738,7 @@
             }
 
             .columns-container {
-                grid-template-columns: 1fr; /* Coluna única no celular */
+                grid-template-columns: 1fr;
                 gap: 5px;
             }
 
@@ -817,7 +791,7 @@
             }
 
             .guest-input {
-                max-width: 100%; /* Largura total de preenchimento nos smartphones */
+                max-width: 100%;
             }
 
             .btn-confirm {
@@ -829,6 +803,50 @@
 
         @keyframes spin {
             100% { transform: rotate(360deg); }
+        }
+
+        .music-fab {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--white);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            color: var(--gold-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .music-fab:hover {
+            transform: scale(1.1);
+            background-color: var(--bg-cream);
+        }
+
+        .music-fab.playing i {
+            animation: music-pulse 1.4s infinite alternate;
+        }
+
+        @keyframes music-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.25); opacity: 1; }
+        }
+
+        @media (max-width: 500px) {
+            .music-fab {
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -844,19 +862,18 @@
             <i class="fa-solid fa-cloud" id="sync-icon"></i> <span id="sync-text">Conectando...</span>
         </div>
 
-        <!-- ILUSTRAÇÃO SUPERIOR: Tábua de corte e Panelinha de Barro Rústica -->
+        <!-- ILUSTRAÇÃO SUPERIOR -->
         <svg class="kitchen-decor-top" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
             <path d="M50,10 C45,10 42,15 42,22 L42,35 L20,35 C14,35 10,39 10,45 L10,95 C10,101 14,105 20,105 L80,105 C86,105 90,101 90,95 L90,45 C90,39 86,35 80,35 L58,35 L58,22 C58,15 55,10 50,10 Z" fill="none" stroke="#9E8159" stroke-width="2.2" stroke-linejoin="round"/>
             <circle cx="50" cy="22" r="4.5" fill="none" stroke="#9E8159" stroke-width="2"/>
             <path d="M22,55 L78,55 M22,65 L78,65 M22,75 L78,75 M22,85 L78,85" stroke="#9E8159" stroke-width="1.2" opacity="0.4"/>
-            <!-- Desenho frontal de panela com tampa -->
             <path d="M20,82 C20,93 28,99 40,99 L55,99 C67,99 75,93 75,82 L75,70 L20,70 Z" fill="#F5EFE6" stroke="#9E8159" stroke-width="2.2"/>
             <path d="M25,70 L70,70 L65,65 L30,65 Z" fill="none" stroke="#9E8159" stroke-width="2"/>
             <circle cx="47.5" cy="61" r="3" fill="none" stroke="#9E8159" stroke-width="2"/>
             <path d="M75,77 L87,77" stroke="#9E8159" stroke-width="2.2" stroke-linecap="round"/>
         </svg>
 
-        <!-- ILUSTRAÇÕES DE FOLHAS LATERAIS (Delicadas e clássicas) -->
+        <!-- ILUSTRAÇÕES DE FOLHAS LATERAIS -->
         <svg class="leaf-decor leaf-top-right" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
             <path d="M10,140 Q30,80 80,15" fill="none" stroke="#9E8159" stroke-width="1.8"/>
             <path d="M30,110 Q10,100 20,90 Q35,100 30,110 Z" fill="none" stroke="#9E8159" stroke-width="1.2"/>
@@ -877,12 +894,11 @@
             <path d="M48,93 Q68,88 62,75 Q52,78 48,93 Z" fill="none" stroke="#9E8159" stroke-width="1.2"/>
         </svg>
 
-        <!-- ILUSTRAÇÃO INFERIOR: Escorredor de Louça e Pratos Clássicos -->
+        <!-- ILUSTRAÇÃO INFERIOR -->
         <svg class="kitchen-decor-bottom" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
             <path d="M10,80 L110,80 L105,52 L15,52 Z" fill="none" stroke="#9E8159" stroke-width="2.2"/>
             <path d="M15,52 C15,35 25,20 45,20 C65,20 70,35 70,52" fill="none" stroke="#9E8159" stroke-width="2"/>
             <path d="M30,52 C30,38 38,28 52,28 C66,28 72,38 72,52" fill="none" stroke="#9E8159" stroke-width="1.5" opacity="0.6"/>
-            <!-- Potinho de talheres com corações -->
             <path d="M85,80 L100,80 L98,55 L87,55 Z" fill="#F5EFE6" stroke="#9E8159" stroke-width="2.2"/>
             <path d="M90,55 L88,38 L85,42" stroke="#9E8159" stroke-width="2" stroke-linecap="round"/>
             <path d="M94,55 L95,35 Q98,32 95,30" stroke="#9E8159" stroke-width="2" stroke-linecap="round" fill="none"/>
@@ -948,7 +964,7 @@
         <div class="footer-subthanks">Obrigado pelo carinho!</div>
         <div class="footer-names">Jonatha & Sarah</div>
 
-        <!-- PAINEL ADMINISTRATIVO (Visível apenas se possuir ?admin=true na URL) -->
+        <!-- PAINEL ADMINISTRATIVO -->
         <div class="admin-panel" id="config-panel">
             <strong>⚙️ Painel de Configuração da Planilha:</strong>
             <p style="color: #666; font-size: 11px;">O código já veio pré-configurado com a sua URL do Apps Script abaixo. Altere-a caso mude de planilha no futuro.</p>
@@ -959,7 +975,17 @@
         </div>
     </div>
 
-    <!-- MODAL CUSTOMIZADO (Design consistente sem usar alertas nativos do navegador) -->
+    <!-- Player de áudio de fundo -->
+    <audio id="bg-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Botão de controle flutuante -->
+    <button id="music-btn" class="music-fab" title="Ativar/Pausar Música de Fundo">
+        <i class="fa-solid fa-music"></i>
+    </button>
+
+    <!-- MODAL CUSTOMIZADO -->
     <div class="modal-overlay" id="custom-modal">
         <div class="modal-box">
             <h4 class="modal-title" id="modal-title">Aviso</h4>
@@ -969,7 +995,6 @@
     </div>
 
     <script>
-        // Transcrição completa e detalhada de todos os itens da imagem enviada pelo usuário
         const itensEsquerda = [
             "Jogo de panelas", "Jogo de pratos", "Jogo de talheres", "Jogo de copos", 
             "Jogo de xícaras de café", "Jogo de taças", "Travessa de vidro", "Tigela de vidro", 
@@ -1001,6 +1026,45 @@
         // Itens que o convidado atual selecionou localmente nesta sessão
         let minhasEscolhasLocais = new Set();
 
+        const player = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+        let musicStarted = false;
+
+        function startMusic() {
+            if (!musicStarted) {
+                player.play().then(() => {
+                    musicStarted = true;
+                    musicBtn.classList.add('playing');
+                    musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                }).catch(err => {
+                    console.log("Aguardando interação para iniciar a música...");
+                });
+            }
+        }
+
+        function toggleMusic() {
+            if (player.paused) {
+                player.play();
+                musicBtn.classList.add('playing');
+                musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                musicStarted = true;
+            } else {
+                player.pause();
+                musicBtn.classList.remove('playing');
+                musicBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+            }
+        }
+
+        // Tenta tocar no primeiro clique ou toque na tela para contornar bloqueio do celular
+        document.body.addEventListener('click', startMusic, { once: true });
+        document.body.addEventListener('touchstart', startMusic, { once: true });
+        
+        // Controle de play/pause manual no botão flutuante
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMusic();
+        });
+
         // Inicializar campo da URL secreta
         document.getElementById('sheets-url-input').value = configSheetsUrl;
 
@@ -1022,42 +1086,51 @@
             document.getElementById('custom-modal').classList.remove('active');
         }
 
-        // Renderização dinâmica dos itens mantendo o estilo visual idêntico ao físico
         function renderLista() {
             const colLeft = document.getElementById('col-left');
             const colRight = document.getElementById('col-right');
+            const guestInput = document.getElementById('main-guest-name');
+            const nomeDigitado = guestInput.value.trim().toLowerCase();
             
             colLeft.innerHTML = '';
             colRight.innerHTML = '';
 
             // Renderiza itens na coluna da esquerda
             itensEsquerda.forEach((item, index) => {
-                colLeft.appendChild(createGiftItemDOM(item, 'E-' + index));
+                const itemDOM = createGiftItemDOM(item, 'E-' + index, nomeDigitado);
+                if (itemDOM) colLeft.appendChild(itemDOM);
             });
 
             // Renderiza itens na coluna da direita
             itensDireita.forEach((item, index) => {
-                colRight.appendChild(createGiftItemDOM(item, 'D-' + index));
+                const itemDOM = createGiftItemDOM(item, 'D-' + index, nomeDigitado);
+                if (itemDOM) colRight.appendChild(itemDOM);
             });
 
             updateSummary();
         }
 
         // Cria o elemento visual de cada presente individual
-        function createGiftItemDOM(itemText, id) {
+        function createGiftItemDOM(itemText, id, nomeDigitado) {
+            const quemReservou = reservadoState[id];
+            const isReserved = !!quemReservou;
+            const souEuQuemMarquei = minhasEscolhasLocais.has(id) || (isReserved && nomeDigitado && quemReservou.trim().toLowerCase() === nomeDigitado);
+
+            // Se o item está reservado por OUTRA pessoa, ele some (não renderiza)
+            if (isReserved && !souEuQuemMarquei) {
+                return null; 
+            }
+
             const container = document.createElement('div');
             container.className = 'gift-item';
             container.id = `item-${id}`;
 
-            const quemReservou = reservadoState[id];
-            const isReserved = !!quemReservou;
-            const souEuQuemMarquei = minhasEscolhasLocais.has(id);
-
-            // Marcador de Coração Original do convite (Vazio/Preenchido)
+            // Marcador de Coração
             const heart = document.createElement('span');
             heart.className = 'heart-icon';
-            if (isReserved || souEuQuemMarquei) {
+            if (souEuQuemMarquei) {
                 heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
+                container.classList.add('my-selection');
             } else {
                 heart.innerHTML = '<i class="fa-regular fa-heart"></i>';
             }
@@ -1070,37 +1143,21 @@
             container.appendChild(heart);
             container.appendChild(label);
 
-            // Aplica os estilos dependendo de quem reservou
-            if (isReserved) {
-                container.classList.add('reserved');
-                
-                // Exibe o nome de quem reservou elegantemente
-                const guestTag = document.createElement('span');
-                guestTag.className = 'guest-tag';
-                guestTag.textContent = quemReservou;
-                container.appendChild(guestTag);
-            } else if (souEuQuemMarquei) {
-                container.classList.add('my-selection');
-                
+            if (souEuQuemMarquei) {
                 const guestTag = document.createElement('span');
                 guestTag.className = 'guest-tag';
                 guestTag.textContent = "Sua Escolha";
                 container.appendChild(guestTag);
             }
 
-            // Clique interativo (bloqueado se já reservado por outrem)
+            // Clique interativo (permite marcar e desmarcar)
             container.onclick = () => {
-                if (isReserved) {
-                    showModal("Item Indisponível", `O item <strong>"${itemText}"</strong> já foi reservado por <strong>${quemReservou}</strong>. Escolha outro lindo item de nossa lista!`);
-                    return; 
-                }
                 toggleSelection(id, itemText);
             };
 
             return container;
         }
 
-        // Ativa e desativa a seleção local dos itens
         function toggleSelection(id, itemText) {
             const guestInput = document.getElementById('main-guest-name');
             const nomeDigitado = guestInput.value.trim();
@@ -1111,10 +1168,19 @@
                 return;
             }
 
-            if (minhasEscolhasLocais.has(id)) {
+            const quemReservou = reservadoState[id];
+            const isReserved = !!quemReservou;
+            const souEuQuemMarquei = minhasEscolhasLocais.has(id) || (isReserved && quemReservou.trim().toLowerCase() === nomeDigitado.toLowerCase());
+
+            if (souEuQuemMarquei) {
+                // Desmarcar
                 minhasEscolhasLocais.delete(id);
                 delete reservadoState[id];
+            } else if (isReserved) {
+                showModal("Item Indisponível", `O item <strong>"${itemText}"</strong> já foi reservado por outra pessoa.`);
+                return;
             } else {
+                // Marcar
                 minhasEscolhasLocais.add(id);
                 reservadoState[id] = nomeDigitado;
             }
@@ -1123,7 +1189,7 @@
             renderLista();
         }
 
-        // Salva localmente e sincroniza as atualizações na nuvem do Google Sheets em tempo real
+        // Salva localmente e sincroniza as atualizações na nuvem do Google Sheets
         function saveState() {
             localStorage.setItem('js_list_reservados', JSON.stringify(reservadoState));
             
@@ -1131,7 +1197,7 @@
                 showSyncingState(true);
                 fetch(configSheetsUrl, {
                     method: 'POST',
-                    mode: 'no-cors', // Envia a requisição de forma opaca caso CORS esteja ativo
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -1147,13 +1213,11 @@
             }
         }
 
-        // Puxa em tempo real os itens já escolhidos da planilha online do Google Sheets com suporte para CORS
         function fetchStateFromSheets() {
             if (!configSheetsUrl) return;
 
             showSyncingState(true);
             
-            // fetch com parâmetro redirect explícito pois o Google Apps Script redireciona em requisições de Web App
             fetch(configSheetsUrl, {
                 method: 'GET',
                 redirect: 'follow',
@@ -1163,13 +1227,13 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Resposta do servidor não foi satisfatória.");
+                    throw new Error("Resposta do servidor insatisfatória.");
                 }
                 return response.json();
             })
             .then(data => {
                 if (data && typeof data === 'object') {
-                    // Mescla os dados recém-puxados com as escolhas que o usuário atual marcou na sua tela
+                    // Mescla os dados recém-puxados com as escolhas ativas da sessão
                     reservadoState = data;
                     
                     const guestInput = document.getElementById('main-guest-name');
@@ -1193,7 +1257,7 @@
             });
         }
 
-        // Mostra o status visual da sincronização em tempo real (Conectado / Erro / Sincronizando)
+        // Mostra o status visual da sincronização
         function showSyncingState(isSyncing, hasError = false) {
             const icon = document.getElementById('sync-icon');
             const text = document.getElementById('sync-text');
@@ -1210,7 +1274,7 @@
             }
         }
 
-        // Atualiza a visualização dinâmica do rodapé "EU ESCOLHI PRESENTEAR COM:"
+        // Atualiza o resumo dinâmico "EU ESCOLHI PRESENTEAR COM:"
         function updateSummary() {
             const guestInput = document.getElementById('main-guest-name');
             const guestName = guestInput.value.trim();
@@ -1229,6 +1293,22 @@
                 meusItens.push(itemText);
             });
 
+            // Adiciona também itens na planilha que têm o nome idêntico ao digitado (caso recarregue o site)
+            if (guestName) {
+                Object.keys(reservadoState).forEach(id => {
+                    if (reservadoState[id].trim().toLowerCase() === guestName.toLowerCase() && !minhasEscolhasLocais.has(id)) {
+                        let itemText = "";
+                        if (id.startsWith('E-')) {
+                            itemText = itensEsquerda[parseInt(id.split('-')[1])];
+                        } else {
+                            itemText = itensDireita[parseInt(id.split('-')[1])];
+                        }
+                        meusItens.push(itemText);
+                        minhasEscolhasLocais.add(id); // Re-associa localmente
+                    }
+                });
+            }
+
             if (meusItens.length > 0) {
                 summaryText.innerHTML = meusItens.join(' e ');
                 
@@ -1246,7 +1326,7 @@
             }
         }
 
-        // Salva a nova planilha se configurada no painel secreto de admin
+        // Salva nova planilha
         function saveSheetsConfig() {
             const url = document.getElementById('sheets-url-input').value.trim();
             localStorage.setItem('js_list_sheets_url', url);
@@ -1255,7 +1335,7 @@
             fetchStateFromSheets();
         }
 
-        // Sincroniza o nome digitado com as seleções atuais do convidado
+        // Sincroniza o nome digitado com as seleções atuais
         document.getElementById('main-guest-name').addEventListener('input', () => {
             const novoNome = document.getElementById('main-guest-name').value.trim();
             if (novoNome) {
@@ -1264,7 +1344,7 @@
                 });
                 saveState();
             }
-            updateSummary();
+            renderLista(); // Atualiza a visualização para mostrar como "Sua Escolha" o que pertencer a esse nome
         });
 
         // Carrega a interface inicial
