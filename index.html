@@ -975,9 +975,9 @@
         </div>
     </div>
 
-    <!-- Player de áudio de fundo -->
+    <!-- Player de áudio de fundo (Música Instrumental Acústica Premium do Servidor em Nuvem) -->
     <audio id="bg-music" loop>
-        <source src="musica.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Botão de controle flutuante -->
@@ -1315,9 +1315,14 @@
                 // Número do WhatsApp dos Noivos (Jonatha & Sarah)
                 const numeroNoivos = "5521964064186"; 
                 
-                const mensagem = encodeURIComponent(
-                    `Olá Jonatha & Sarah! 💕\n\nEscolhi presentear vocês com:\n🎁 *${meusItens.join(' e ')}*\n\nJá reservei no site do chá! Assinado: ${guestName}`
-                );
+                const messageIntro = `Olá Jonatha & Sarah! 💕\n\nEscolhi presentear vocês com:\n🎁 *${meusItens.join(' e ')}*`;
+                const messageOutro = `\n\nJá reservei no site do chá! Assinado: ${guestName}`;
+                
+                // Adiciona um link para o site onde os noivos e convidados podem acessar para ver a lista atualizada
+                const currentSiteUrl = window.location.href.split('?')[0]; // URL limpa sem parâmetros de admin
+                const messageSite = `\n\nSite do Chá: ${currentSiteUrl}`;
+                
+                const mensagem = encodeURIComponent(messageIntro + messageOutro + messageSite);
                 whatsappBtn.href = `https://wa.me/${numeroNoivos}?text=${mensagem}`;
                 whatsappBtn.style.display = 'inline-flex';
             } else {
