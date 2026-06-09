@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Chá de Panela - Jonatha & Sarah</title>
-    <!-- Google Fonts idênticas ao convite -->
+    <!-- Google Fonts idênticas ao convite físico -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -85,7 +85,6 @@
             z-index: 1;
         }
 
-        /* Aquarelas e Ilustrações de Folhas nas Bordas */
         .leaf-decor {
             position: absolute;
             width: 110px;
@@ -129,7 +128,6 @@
             z-index: 1;
         }
 
-        /* Cabeçalho */
         .header {
             text-align: center;
             margin-bottom: 25px;
@@ -257,7 +255,6 @@
             font-weight: 800;
         }
 
-        /* Seção da Lista de Presentes */
         .gift-list-section {
             border: 1px solid var(--gold);
             border-radius: 14px;
@@ -441,7 +438,6 @@
             box-shadow: 0 0 10px rgba(197, 168, 128, 0.4);
         }
 
-        /* Botão de confirmação do WhatsApp */
         .btn-confirm {
             background-color: var(--gold-dark);
             color: var(--white);
@@ -504,7 +500,6 @@
             z-index: 2;
         }
 
-        /* Indicador de Status da Sincronização */
         .sync-badge {
             position: absolute;
             top: 25px;
@@ -525,7 +520,7 @@
 
         /* Tooltip explicativo de sincronização */
         .sync-badge::after {
-            content: "Para corrigir o erro de sincronização: 1. Vá ao Google Apps Script. 2. Clique em 'Implantar' > 'Gerenciar implantações'. 3. Crie uma versão nova mudando o acesso de 'Apenas eu' para 'Qualquer pessoa'.";
+            content: "Sua lista está integrada ao Google Planilhas. As atualizações salvam e carregam automaticamente em tempo real para todos os seus convidados!";
             position: absolute;
             top: 30px;
             left: 0;
@@ -625,7 +620,6 @@
             background-color: #856B48;
         }
 
-        /* Painel Administrativo */
         .admin-panel {
             background-color: rgba(255,255,255,0.95);
             border: 2px solid var(--gold);
@@ -669,6 +663,35 @@
             cursor: pointer;
             font-weight: 700;
             transition: background 0.2s;
+        }
+
+        .music-fab {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--white);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            color: var(--gold-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .music-fab:hover {
+            transform: scale(1.1);
+            background-color: var(--bg-cream);
+        }
+
+        .music-fab.playing i {
+            animation: music-pulse 1.4s infinite alternate;
         }
 
         @media (max-width: 500px) {
@@ -799,47 +822,7 @@
                 font-size: 11px;
                 padding: 12px 20px;
             }
-        }
 
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
-
-        .music-fab {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 45px;
-            height: 45px;
-            background-color: var(--white);
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            color: var(--gold-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .music-fab:hover {
-            transform: scale(1.1);
-            background-color: var(--bg-cream);
-        }
-
-        .music-fab.playing i {
-            animation: music-pulse 1.4s infinite alternate;
-        }
-
-        @keyframes music-pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.25); opacity: 1; }
-        }
-
-        @media (max-width: 500px) {
             .music-fab {
                 bottom: 20px;
                 left: 20px;
@@ -847,6 +830,15 @@
                 height: 40px;
                 font-size: 14px;
             }
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes music-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.25); opacity: 1; }
         }
     </style>
 </head>
@@ -862,7 +854,7 @@
             <i class="fa-solid fa-cloud" id="sync-icon"></i> <span id="sync-text">Conectando...</span>
         </div>
 
-        <!-- ILUSTRAÇÃO SUPERIOR -->
+        <!-- ILUSTRAÇÃO SUPERIOR: Tábua de corte e panela do convite -->
         <svg class="kitchen-decor-top" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
             <path d="M50,10 C45,10 42,15 42,22 L42,35 L20,35 C14,35 10,39 10,45 L10,95 C10,101 14,105 20,105 L80,105 C86,105 90,101 90,95 L90,45 C90,39 86,35 80,35 L58,35 L58,22 C58,15 55,10 50,10 Z" fill="none" stroke="#9E8159" stroke-width="2.2" stroke-linejoin="round"/>
             <circle cx="50" cy="22" r="4.5" fill="none" stroke="#9E8159" stroke-width="2"/>
@@ -894,7 +886,7 @@
             <path d="M48,93 Q68,88 62,75 Q52,78 48,93 Z" fill="none" stroke="#9E8159" stroke-width="1.2"/>
         </svg>
 
-        <!-- ILUSTRAÇÃO INFERIOR -->
+        <!-- ILUSTRAÇÃO INFERIOR: Pratos no escorredor -->
         <svg class="kitchen-decor-bottom" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
             <path d="M10,80 L110,80 L105,52 L15,52 Z" fill="none" stroke="#9E8159" stroke-width="2.2"/>
             <path d="M15,52 C15,35 25,20 45,20 C65,20 70,35 70,52" fill="none" stroke="#9E8159" stroke-width="2"/>
@@ -975,9 +967,9 @@
         </div>
     </div>
 
-    <!-- Player de áudio de fundo (Música Instrumental Acústica Premium do Servidor em Nuvem) -->
+    <!-- Player de áudio de fundo (Ed Sheeran - Thinking Out Loud) -->
     <audio id="bg-music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://archive.org/download/JhePlalist/Thinking%20out%20Loud-%20Ed%20Sheeran.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Botão de controle flutuante -->
@@ -1037,7 +1029,7 @@
                     musicBtn.classList.add('playing');
                     musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
                 }).catch(err => {
-                    console.log("Aguardando interação para iniciar a música...");
+                    console.log("Aguardando interação inicial para tocar a música...");
                 });
             }
         }
@@ -1055,9 +1047,19 @@
             }
         }
 
-        // Tenta tocar no primeiro clique ou toque na tela para contornar bloqueio do celular
-        document.body.addEventListener('click', startMusic, { once: true });
-        document.body.addEventListener('touchstart', startMusic, { once: true });
+        // Tenta iniciar a música assim que o site carrega
+        window.addEventListener('load', () => {
+            player.play().then(() => {
+                musicStarted = true;
+                musicBtn.classList.add('playing');
+                musicBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+            }).catch(() => {
+                // Se o navegador bloquear o autoplay, ativa na primeira ação do usuário (toque, clique ou rolagem)
+                document.body.addEventListener('click', startMusic, { once: true });
+                document.body.addEventListener('touchstart', startMusic, { once: true });
+                window.addEventListener('scroll', startMusic, { once: true });
+            });
+        });
         
         // Controle de play/pause manual no botão flutuante
         musicBtn.addEventListener('click', (e) => {
@@ -1116,7 +1118,7 @@
             const isReserved = !!quemReservou;
             const souEuQuemMarquei = minhasEscolhasLocais.has(id) || (isReserved && nomeDigitado && quemReservou.trim().toLowerCase() === nomeDigitado);
 
-            // Se o item está reservado por OUTRA pessoa, ele some (não renderiza)
+            // Se o item está reservado por OUTRA pessoa, ele some da lista automaticamente
             if (isReserved && !souEuQuemMarquei) {
                 return null; 
             }
@@ -1150,7 +1152,7 @@
                 container.appendChild(guestTag);
             }
 
-            // Clique interativo (permite marcar e desmarcar)
+            // Clique interativo para marcar/desmarcar o presente de forma alternada
             container.onclick = () => {
                 toggleSelection(id, itemText);
             };
@@ -1173,14 +1175,14 @@
             const souEuQuemMarquei = minhasEscolhasLocais.has(id) || (isReserved && quemReservou.trim().toLowerCase() === nomeDigitado.toLowerCase());
 
             if (souEuQuemMarquei) {
-                // Desmarcar
+                // Desmarcar item
                 minhasEscolhasLocais.delete(id);
                 delete reservadoState[id];
             } else if (isReserved) {
                 showModal("Item Indisponível", `O item <strong>"${itemText}"</strong> já foi reservado por outra pessoa.`);
                 return;
             } else {
-                // Marcar
+                // Marcar item
                 minhasEscolhasLocais.add(id);
                 reservadoState[id] = nomeDigitado;
             }
@@ -1189,7 +1191,6 @@
             renderLista();
         }
 
-        // Salva localmente e sincroniza as atualizações na nuvem do Google Sheets
         function saveState() {
             localStorage.setItem('js_list_reservados', JSON.stringify(reservadoState));
             
@@ -1207,12 +1208,13 @@
                     setTimeout(() => showSyncingState(false), 800);
                 })
                 .catch(err => {
-                    console.error("Erro na sincronização:", err);
+                    console.error("Erro na sincronização automática:", err);
                     showSyncingState(false, true);
                 });
             }
         }
 
+        // Carrega dados atualizados do Sheets de forma constante
         function fetchStateFromSheets() {
             if (!configSheetsUrl) return;
 
@@ -1227,13 +1229,13 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error("Resposta do servidor insatisfatória.");
+                    throw new Error("Erro na resposta do Google Script.");
                 }
                 return response.json();
             })
             .then(data => {
                 if (data && typeof data === 'object') {
-                    // Mescla os dados recém-puxados com as escolhas ativas da sessão
+                    // Mescla os dados sincronizados sem remover as escolhas que o convidado acabou de marcar
                     reservadoState = data;
                     
                     const guestInput = document.getElementById('main-guest-name');
@@ -1252,12 +1254,12 @@
                 }
             })
             .catch(err => {
-                console.error("Erro de busca na nuvem:", err);
+                console.error("Falha ao puxar dados da planilha:", err);
                 showSyncingState(false, true);
             });
         }
 
-        // Mostra o status visual da sincronização
+        // Exibe o status visual da nuvem (Sincronizado / Carregando / Erro)
         function showSyncingState(isSyncing, hasError = false) {
             const icon = document.getElementById('sync-icon');
             const text = document.getElementById('sync-text');
@@ -1274,7 +1276,6 @@
             }
         }
 
-        // Atualiza o resumo dinâmico "EU ESCOLHI PRESENTEAR COM:"
         function updateSummary() {
             const guestInput = document.getElementById('main-guest-name');
             const guestName = guestInput.value.trim();
@@ -1293,7 +1294,7 @@
                 meusItens.push(itemText);
             });
 
-            // Adiciona também itens na planilha que têm o nome idêntico ao digitado (caso recarregue o site)
+            // Se o usuário recarregar a tela, re-associa suas escolhas com o nome digitado
             if (guestName) {
                 Object.keys(reservadoState).forEach(id => {
                     if (reservadoState[id].trim().toLowerCase() === guestName.toLowerCase() && !minhasEscolhasLocais.has(id)) {
@@ -1304,7 +1305,7 @@
                             itemText = itensDireita[parseInt(id.split('-')[1])];
                         }
                         meusItens.push(itemText);
-                        minhasEscolhasLocais.add(id); // Re-associa localmente
+                        minhasEscolhasLocais.add(id);
                     }
                 });
             }
@@ -1312,14 +1313,13 @@
             if (meusItens.length > 0) {
                 summaryText.innerHTML = meusItens.join(' e ');
                 
-                // Número do WhatsApp dos Noivos (Jonatha & Sarah)
+                // Número real do WhatsApp de Jonatha & Sarah
                 const numeroNoivos = "5521964064186"; 
                 
                 const messageIntro = `Olá Jonatha & Sarah! 💕\n\nEscolhi presentear vocês com:\n🎁 *${meusItens.join(' e ')}*`;
                 const messageOutro = `\n\nJá reservei no site do chá! Assinado: ${guestName}`;
                 
-                // Adiciona um link para o site onde os noivos e convidados podem acessar para ver a lista atualizada
-                const currentSiteUrl = window.location.href.split('?')[0]; // URL limpa sem parâmetros de admin
+                const currentSiteUrl = window.location.href.split('?')[0];
                 const messageSite = `\n\nSite do Chá: ${currentSiteUrl}`;
                 
                 const mensagem = encodeURIComponent(messageIntro + messageOutro + messageSite);
@@ -1331,16 +1331,16 @@
             }
         }
 
-        // Salva nova planilha
+        // Salva a planilha se configurada no painel secreto de administração
         function saveSheetsConfig() {
             const url = document.getElementById('sheets-url-input').value.trim();
             localStorage.setItem('js_list_sheets_url', url);
             configSheetsUrl = url;
-            showModal("Planilha Sincronizada", "Parabéns! Sua nova URL do Google Sheets foi vinculada com sucesso. Os dados serão carregados agora.");
+            showModal("Planilha Sincronizada", "Sua URL do Google Sheets foi vinculada com sucesso! Os presentes salvos serão carregados agora.");
             fetchStateFromSheets();
         }
 
-        // Sincroniza o nome digitado com as seleções atuais
+        // Sincroniza o nome digitado em tempo real
         document.getElementById('main-guest-name').addEventListener('input', () => {
             const novoNome = document.getElementById('main-guest-name').value.trim();
             if (novoNome) {
@@ -1349,17 +1349,15 @@
                 });
                 saveState();
             }
-            renderLista(); // Atualiza a visualização para mostrar como "Sua Escolha" o que pertencer a esse nome
+            renderLista();
         });
 
-        // Carrega a interface inicial
+        // Carrega toda a interface visual e inicializa o sistema
         renderLista();
 
-        // Inicia a sincronização se o link da planilha existir
+        // Inicia o loop contínuo de sincronização em segundo plano se o link existir
         if (configSheetsUrl) {
             fetchStateFromSheets();
-            
-            // Loop contínuo de sincronização a cada 8 segundos
             setInterval(fetchStateFromSheets, 8000);
         }
     </script>
