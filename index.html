@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Chá de Panela - Jonatha & Sarah</title>
     <!-- Google Fonts idênticas ao convite -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
             background-position: 0 0, 12px 12px;
             font-family: 'Montserrat', sans-serif;
             color: var(--charcoal);
-            padding: 20px 10px;
+            padding: 15px 8px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -52,7 +52,7 @@
             max-width: 800px;
             border-radius: 24px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            padding: 50px 35px;
+            padding: 45px 30px;
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(197, 168, 128, 0.5);
@@ -62,10 +62,10 @@
         /* Molduras de linhas douradas duplas internas */
         .inner-border {
             position: absolute;
-            top: 18px;
-            left: 18px;
-            right: 18px;
-            bottom: 18px;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
             border: 1px solid var(--gold);
             pointer-events: none;
             border-radius: 16px;
@@ -75,10 +75,10 @@
 
         .inner-border-double {
             position: absolute;
-            top: 23px;
-            left: 23px;
-            right: 23px;
-            bottom: 23px;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
             border: 2px dashed var(--gold);
             pointer-events: none;
             border-radius: 14px;
@@ -86,7 +86,7 @@
             z-index: 1;
         }
 
-        /* Aquarelas e Ilustrações de Folhas nas Bordas (SVG integrado) */
+        /* Aquarelas e Ilustrações de Folhas nas Bordas */
         .leaf-decor {
             position: absolute;
             width: 110px;
@@ -133,34 +133,35 @@
         /* Cabeçalho */
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             position: relative;
             z-index: 2;
         }
 
         .header .subtitle-top {
-            font-size: 18px;
-            letter-spacing: 6px;
+            font-size: 16px;
+            letter-spacing: 5px;
             color: var(--charcoal);
             font-weight: 500;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .header h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 72px;
+            font-size: 68px;
             color: var(--gold-dark);
             font-weight: 400;
             line-height: 1.1;
             margin-bottom: 8px;
             text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+            word-wrap: break-word;
         }
 
         .heart-separator {
             color: var(--gold);
             font-size: 14px;
-            margin: 12px 0;
+            margin: 10px 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -179,16 +180,17 @@
         .header p.dedication {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 15px;
-            line-height: 1.7;
+            font-size: 14.5px;
+            line-height: 1.6;
             color: #555555;
             max-width: 500px;
             margin: 8px auto 12px auto;
+            padding: 0 10px;
         }
 
         .header p.presence-note {
             font-family: 'Great Vibes', cursive;
-            font-size: 28px;
+            font-size: 26px;
             color: var(--gold-dark);
             margin-top: 5px;
         }
@@ -198,9 +200,9 @@
             background-color: var(--grey-light);
             border: 1px solid #D1D5DB;
             border-radius: 14px;
-            padding: 18px 24px;
+            padding: 16px 20px;
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 2;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
@@ -209,19 +211,20 @@
         .banner-cinza h2 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 22px;
+            font-size: 20px;
             color: var(--grey-dark);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin-bottom: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .banner-cinza h2 span {
             color: #1A1A1A;
-            font-size: 24px;
+            font-size: 22px;
             border-bottom: 3px solid var(--grey-dark);
             padding-bottom: 1px;
             font-weight: 900;
@@ -229,23 +232,23 @@
 
         .banner-cinza p.sub-banner {
             font-size: 11px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             color: var(--grey-dark);
             text-transform: uppercase;
             font-weight: 700;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .observacao {
             background-color: var(--grey-dark);
             color: var(--white);
             border-radius: 8px;
-            padding: 9px 16px;
-            font-size: 11.5px;
+            padding: 8px 14px;
+            font-size: 11px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             max-width: 100%;
             line-height: 1.4;
             letter-spacing: 0.5px;
@@ -260,9 +263,9 @@
         .gift-list-section {
             border: 1px solid var(--gold);
             border-radius: 14px;
-            padding: 30px 25px;
+            padding: 25px 20px;
             background-color: rgba(255, 255, 255, 0.55);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 2;
         }
@@ -270,18 +273,18 @@
         .gift-list-title-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .gift-list-title {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            letter-spacing: 4px;
+            font-size: 16px;
+            letter-spacing: 3px;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--charcoal);
             background-color: #EFE6D8;
-            padding: 8px 30px;
+            padding: 8px 25px;
             border-radius: 30px;
             border: 1px solid var(--gold);
             display: inline-block;
@@ -292,15 +295,15 @@
         .columns-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px 30px;
+            gap: 10px 25px;
         }
 
         /* Item Individual da Lista */
         .gift-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 10px 14px;
+            gap: 10px;
+            padding: 10px 12px;
             border-radius: 10px;
             transition: all 0.25s ease;
             position: relative;
@@ -318,7 +321,7 @@
         .gift-item.reserved {
             background-color: rgba(0, 0, 0, 0.03);
             border-bottom-color: transparent;
-            opacity: 0.65;
+            opacity: 0.7;
             cursor: not-allowed;
         }
 
@@ -333,10 +336,10 @@
             font-weight: 400;
         }
 
-        /* Marcador de Coração Original */
+        /* Marcador de Coração */
         .heart-icon {
             color: var(--accent-heart);
-            font-size: 11px;
+            font-size: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -346,16 +349,16 @@
         }
 
         .gift-name {
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--charcoal);
             font-weight: 500;
             flex-grow: 1;
             line-height: 1.4;
+            word-break: break-word;
         }
 
         /* Tag do Convidado que Reservou */
         .guest-tag {
-            font-size: 11px;
             font-family: 'Great Vibes', cursive;
             font-size: 18px;
             font-weight: 500;
@@ -382,9 +385,9 @@
         .selection-summary {
             border: 2px solid var(--gold);
             border-radius: 16px;
-            padding: 30px 25px;
+            padding: 25px 20px;
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             background-color: rgba(255,255,255,0.75);
             position: relative;
             z-index: 2;
@@ -393,15 +396,15 @@
 
         .selection-summary h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
             font-weight: 700;
             color: var(--charcoal);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .selection-summary h3 i {
@@ -412,35 +415,36 @@
         .selected-items-list {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--gold-dark);
             min-height: 28px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-weight: 700;
             line-height: 1.5;
             border-bottom: 1px solid var(--gold-light);
-            padding-bottom: 12px;
+            padding-bottom: 10px;
             display: inline-block;
             width: 100%;
             max-width: 500px;
+            word-wrap: break-word;
         }
 
         /* Campo de Nome Completo */
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-group label {
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 700;
             letter-spacing: 1.5px;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--charcoal);
         }
 
         .guest-input {
-            padding: 14px 20px;
+            padding: 12px 18px;
             width: 100%;
             max-width: 350px;
             border: 1.5px solid var(--gold);
@@ -448,7 +452,7 @@
             text-align: center;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 16px;
+            font-size: 15px;
             outline: none;
             color: var(--charcoal);
             background-color: var(--white);
@@ -465,9 +469,9 @@
             background-color: var(--gold-dark);
             color: var(--white);
             font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            padding: 16px 30px;
+            padding: 14px 24px;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -478,7 +482,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
             width: 100%;
             max-width: 350px;
@@ -496,14 +500,14 @@
             font-family: 'Great Vibes', cursive;
             font-size: 32px;
             color: var(--gold-dark);
-            margin-top: 25px;
+            margin-top: 20px;
             position: relative;
             z-index: 2;
         }
 
         .footer-subthanks {
             text-align: center;
-            font-size: 11px;
+            font-size: 10.5px;
             letter-spacing: 3px;
             color: var(--charcoal);
             text-transform: uppercase;
@@ -526,26 +530,52 @@
         /* Indicador de Status da Sincronização */
         .sync-badge {
             position: absolute;
-            top: 30px;
-            left: 30px;
-            font-size: 11px;
+            top: 25px;
+            left: 25px;
+            font-size: 10.5px;
             background-color: rgba(197, 168, 128, 0.15);
-            padding: 4px 12px;
+            padding: 5px 12px;
             border-radius: 20px;
             display: flex;
             align-items: center;
             gap: 6px;
             color: var(--gold-dark);
             font-weight: 600;
-            z-index: 3;
+            z-index: 10;
             border: 1px solid rgba(197, 168, 128, 0.25);
+            cursor: help;
+        }
+
+        /* Tooltip de erro para ajudar o usuário */
+        .sync-badge::after {
+            content: "Para corrigir o erro de sincronização: 1. Vá ao Google Apps Script. 2. Clique em 'Implantar' > 'Gerenciar implantações'. 3. Crie uma versão nova mudando o acesso de 'Apenas eu' para 'Qualquer pessoa'.";
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 250px;
+            background-color: var(--grey-dark);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: normal;
+            line-height: 1.4;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 99;
+        }
+
+        .sync-badge:hover::after, .sync-badge:active::after {
+            opacity: 1;
         }
 
         .sync-badge i.syncing {
             animation: spin 1s linear infinite;
         }
 
-        /* Modal Customizado Premium (Evita uso do alert() do navegador) */
+        /* Modal Customizado Premium */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -574,7 +604,7 @@
             border-radius: 20px;
             padding: 30px 24px;
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transform: scale(0.8);
@@ -595,7 +625,7 @@
         }
 
         .modal-text {
-            font-size: 14px;
+            font-size: 13.5px;
             line-height: 1.5;
             color: var(--charcoal);
             margin-bottom: 24px;
@@ -607,7 +637,7 @@
             border: none;
             padding: 12px 30px;
             border-radius: 25px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -619,7 +649,7 @@
             background-color: #856B48;
         }
 
-        /* Configurações Secretas de Admin (Apenas para Jonatha & Sarah) */
+        /* Painel Admin */
         .admin-panel {
             background-color: rgba(255,255,255,0.95);
             border: 2px solid var(--gold);
@@ -665,64 +695,135 @@
             transition: background 0.2s;
         }
 
-        .admin-panel button:hover {
-            background-color: #856B48;
-        }
-
-        /* Responsividade Perfeita para Celular (Mobile First) */
-        @media (max-width: 650px) {
-            .columns-container {
-                grid-template-columns: 1fr; /* Coluna única no celular */
-                gap: 6px;
+        /* RESPONSIVIDADE PROFISSIONAL (MOBILE-FIRST) */
+        @media (max-width: 500px) {
+            body {
+                padding: 10px 4px; /* Mais área útil */
             }
 
             .card-container {
-                padding: 40px 18px;
+                padding: 30px 14px; /* Padding interno perfeito */
+                border-radius: 18px;
+            }
+
+            .inner-border {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+            }
+
+            .inner-border-double {
+                top: 12px;
+                left: 12px;
+                right: 12px;
+                bottom: 12px;
+            }
+
+            /* Ocultar elementos decorativos de cozinha para maximizar legibilidade e espaço do celular */
+            .kitchen-decor-top,
+            .kitchen-decor-bottom {
+                display: none !important;
+            }
+
+            .leaf-decor {
+                width: 75px;
+                opacity: 0.15;
+            }
+
+            .leaf-top-right {
+                top: 15px;
+                right: 15px;
+            }
+
+            .leaf-bottom-left {
+                bottom: 15px;
+                left: 15px;
             }
 
             .header h1 {
-                font-size: 48px;
+                font-size: 40px; /* Redução para evitar overflow lateral */
             }
 
             .header p.presence-note {
-                font-size: 22px;
+                font-size: 21px;
             }
 
-            .kitchen-decor-top {
-                width: 70px;
-                top: 25px;
-                left: 25px;
-                opacity: 0.18;
-            }
-
-            .kitchen-decor-bottom {
-                width: 80px;
-                bottom: 25px;
-                right: 25px;
-                opacity: 0.18;
+            .header p.dedication {
+                font-size: 13px;
+                line-height: 1.5;
             }
 
             .sync-badge {
-                position: static;
-                margin: 0 auto 20px auto;
+                position: relative;
+                top: 0;
+                left: 0;
+                margin: 0 auto 15px auto;
                 width: fit-content;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             }
 
-            .gift-list-section {
-                padding: 20px 12px;
+            .columns-container {
+                grid-template-columns: 1fr; /* Coluna única no celular */
+                gap: 5px;
+            }
+
+            .gift-item {
+                padding: 8px 10px;
+                border-radius: 8px;
+            }
+
+            .gift-name {
+                font-size: 13px;
+            }
+
+            .guest-tag {
+                font-size: 16px;
+                padding: 1px 8px;
+            }
+
+            .banner-cinza {
+                padding: 12px 14px;
+                margin-bottom: 20px;
             }
 
             .banner-cinza h2 {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .banner-cinza h2 span {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .observacao {
-                font-size: 10px;
-                padding: 8px 10px;
+                font-size: 9.5px;
+                padding: 6px 10px;
+                letter-spacing: 0px;
+            }
+
+            .gift-list-section {
+                padding: 15px 10px;
+                margin-bottom: 20px;
+            }
+
+            .selection-summary {
+                padding: 20px 14px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+            }
+
+            .selected-items-list {
+                font-size: 14.5px;
+            }
+
+            .guest-input {
+                max-width: 100%; /* Largura total de preenchimento nos smartphones */
+            }
+
+            .btn-confirm {
+                max-width: 100%;
+                font-size: 11px;
+                padding: 12px 20px;
             }
         }
 
@@ -1030,7 +1131,7 @@
                 showSyncingState(true);
                 fetch(configSheetsUrl, {
                     method: 'POST',
-                    mode: 'no-cors',
+                    mode: 'no-cors', // Envia a requisição de forma opaca caso CORS esteja ativo
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -1046,35 +1147,50 @@
             }
         }
 
-        // Puxa em tempo real os itens já escolhidos da planilha online do Google Sheets
+        // Puxa em tempo real os itens já escolhidos da planilha online do Google Sheets com suporte para CORS
         function fetchStateFromSheets() {
             if (!configSheetsUrl) return;
 
             showSyncingState(true);
-            fetch(configSheetsUrl)
-                .then(response => response.json())
-                .then(data => {
-                    if (data && typeof data === 'object') {
-                        // Mescla os dados recém-puxados com as escolhas que o usuário atual marcou na sua tela
-                        reservadoState = data;
-                        
-                        const guestInput = document.getElementById('main-guest-name');
-                        const nomeDigitado = guestInput.value.trim();
-                        if (nomeDigitado) {
-                            minhasEscolhasLocais.forEach(id => {
-                                reservadoState[id] = nomeDigitado;
-                            });
-                        }
-
-                        localStorage.setItem('js_list_reservados', JSON.stringify(reservadoState));
-                        renderLista();
-                        showSyncingState(false);
+            
+            // fetch com parâmetro redirect explícito pois o Google Apps Script redireciona em requisições de Web App
+            fetch(configSheetsUrl, {
+                method: 'GET',
+                redirect: 'follow',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Resposta do servidor não foi satisfatória.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data && typeof data === 'object') {
+                    // Mescla os dados recém-puxados com as escolhas que o usuário atual marcou na sua tela
+                    reservadoState = data;
+                    
+                    const guestInput = document.getElementById('main-guest-name');
+                    const nomeDigitado = guestInput.value.trim();
+                    if (nomeDigitado) {
+                        minhasEscolhasLocais.forEach(id => {
+                            reservadoState[id] = nomeDigitado;
+                        });
                     }
-                })
-                .catch(err => {
-                    console.error("Erro de busca na nuvem:", err);
+
+                    localStorage.setItem('js_list_reservados', JSON.stringify(reservadoState));
+                    renderLista();
+                    showSyncingState(false);
+                } else {
                     showSyncingState(false, true);
-                });
+                }
+            })
+            .catch(err => {
+                console.error("Erro de busca na nuvem:", err);
+                showSyncingState(false, true);
+            });
         }
 
         // Mostra o status visual da sincronização em tempo real (Conectado / Erro / Sincronizando)
@@ -1084,7 +1200,7 @@
 
             if (isSyncing) {
                 icon.className = 'fa-solid fa-arrows-rotate syncing';
-                text.textContent = 'Buscando atualizações...';
+                text.textContent = 'Sincronizando...';
             } else if (hasError) {
                 icon.className = 'fa-solid fa-circle-exclamation';
                 text.textContent = 'Erro ao sincronizar';
@@ -1158,7 +1274,7 @@
         if (configSheetsUrl) {
             fetchStateFromSheets();
             
-            // Loop contínuo: Atualiza em tempo real a cada 8 segundos para evitar conflito de dois convidados escolherem o mesmo item simultaneamente
+            // Loop contínuo de sincronização a cada 8 segundos
             setInterval(fetchStateFromSheets, 8000);
         }
     </script>
